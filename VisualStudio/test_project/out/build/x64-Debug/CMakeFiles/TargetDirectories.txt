@@ -1,0 +1,5 @@
+C:/Users/angry/Desktop/Programming/CIS25/VisualStudio/test_project/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/angry/Desktop/Programming/CIS25/VisualStudio/test_project/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/angry/Desktop/Programming/CIS25/VisualStudio/test_project/out/build/x64-Debug/test_project/CMakeFiles/test_project.dir
+C:/Users/angry/Desktop/Programming/CIS25/VisualStudio/test_project/out/build/x64-Debug/test_project/CMakeFiles/edit_cache.dir
+C:/Users/angry/Desktop/Programming/CIS25/VisualStudio/test_project/out/build/x64-Debug/test_project/CMakeFiles/rebuild_cache.dir

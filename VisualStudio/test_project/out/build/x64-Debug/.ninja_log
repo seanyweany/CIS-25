@@ -1,0 +1,7 @@
+# ninja log v5
+9	914	7156692981951248	test_project/CMakeFiles/test_project.dir/Main.cpp.obj	8ca33c7d6aa6b601
+0	475	7156693719110728	test_project/CMakeFiles/test_project.dir/Main2.cpp.obj	f470c46e62fb453d
+475	699	7156693720630687	test_project/test_project.exe	6473aa005e909087
+1	952	7156729773518691	test_project/CMakeFiles/test_project.dir/Main.cpp.obj	8ca33c7d6aa6b601
+0	591	7156730071008441	test_project/CMakeFiles/test_project.dir/Main.cpp.obj	8ca33c7d6aa6b601
+1	497	7156730217222219	test_project/CMakeFiles/test_project.dir/Main.cpp.obj	8ca33c7d6aa6b601
