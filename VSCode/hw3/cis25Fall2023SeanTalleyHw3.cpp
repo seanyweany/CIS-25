@@ -64,7 +64,7 @@ void runMenuHw3ST() {
         switch (optionST) {
             case 1:
                 cout << "\n\nCalling displayDigitInfoWithArrayST() -\n\n"
-                     << "  While displayDigitInfoWithArrayST() is running -\n\n"
+                     << "  While displayDigitInfoWithArrayST() is running -\n"
                      << endl;
 
                 displayDigitInfoWithArrayST();
@@ -86,11 +86,13 @@ void displayDigitInfoWithArrayST() {
     cout << "    How many integer(s)? ";
     cin >> numIntST;
 
-    int* aryIntST = new int[numIntST];
+    cout << endl;
+
+    int* aryIntST = new int[numIntST]; // taken from stackoverflow
 
     // initialize pointer array
     for (int i = 0; i < numIntST; i++) {
-        cout << "\n    Enter integer #" << i + 1 << ": ";
+        cout << "    Enter integer #" << i + 1 << ": ";
 
         int idxInt;
 
@@ -109,10 +111,11 @@ void displayDigitInfoWithArrayST() {
     int largestDigit = 0;
     int countLargestDigit = 0;
     int intContLargestDigit = 0;
-    int* largestDigitPtr{nullptr};
+    int* largestDigitPtr = new int[numIntST];
 
-    for (int j = 0; j < sizeof(*aryIntST) / sizeof(aryIntST[0]); j++) {
-        // Count up variables
+    // go through array of inputted numbers and store values
+    for (int j = 0; j < numIntST; j++) {
+        // Count up sign and parity
         if (*(aryIntST + j) > 0) {
             if (*(aryIntST + j) % 2 == 0) {
                 countPE++;
@@ -127,21 +130,24 @@ void displayDigitInfoWithArrayST() {
             }
         }
 
+        // parse through each digit in each number and store values
         int currentInt = *(aryIntST + j);
         while (currentInt) {
             occDigit[currentInt % 10]++;
-            currentInt /= 10;
-
+            currentInt /= 10;            
+            
+            /*
             if (currentInt % 10 >= largestDigit)
             {
                 largestDigit = currentInt % 10;
                 countLargestDigit = occDigit[currentInt % 10];
-                intContLargestDigit = occDigit[currentInt % 10];
+                intContLargestDigit = *(aryIntST + j);
             }
+            */
         }
     }
 
-    cout << "    There is/are\n"
+    cout << "\n    There is/are\n"
          << "      " << countNO << " negative and odd integer(s)\n"
          << "      " << countNE << " negative and even integer(s)\n"
          << "      " << countPO << " positive and odd integer(s)\n"
@@ -152,12 +158,18 @@ void displayDigitInfoWithArrayST() {
 
     for (int k = 0; k < 10; k++) {
         cout << "      " << k << " seen " << occDigit[k] << " time(s)" << endl; 
+
+        // find most frequent digit(s)
+        if (occDigit[k] > countLargestDigit) {
+            countLargestDigit = occDigit[k];
+            largestDigit = k;
+        }
     }
 
-    cout << "    The most seen digit(s) is/are\n"
+    cout << "\n    The most seen digit(s) is/are\n"
          << "      " << largestDigit << " seen " << countLargestDigit << " time(s), and\n"
          << "        " << largestDigit << " is found in\n"
-         << intContLargestDigit << "\n"
+         << "          " << intContLargestDigit << "\n"
          << endl;
 
     /*
