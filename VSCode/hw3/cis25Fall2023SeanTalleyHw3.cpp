@@ -169,8 +169,20 @@ void displayDigitInfoWithArrayST() {
     cout << "\n    The most seen digit(s) is/are\n"
          << "      " << largestDigit << " seen " << countLargestDigit << " time(s), and\n"
          << "        " << largestDigit << " is found in\n"
-         << "          " << intContLargestDigit << "\n"
          << endl;
+
+    for (int l = 0; l < numIntST; l++) {
+        int tmpST = *(aryIntST + l);
+        
+        while (tmpST) {
+            if (tmpST % 10 == largestDigit) {
+                cout << "          " << *(aryIntST + l) << endl;
+                break; // learned in APCS (Java)
+            }
+
+            tmpST /= 10;
+        }
+    }    
 
     /*
       negative and odd integer(s)
