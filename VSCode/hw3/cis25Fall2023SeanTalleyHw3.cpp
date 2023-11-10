@@ -108,10 +108,9 @@ void displayDigitInfoWithArrayST() {
 
     int occDigit[10]{0}; // occurence of digits 0-9
 
-    int largestDigit = 0;
-    int countLargestDigit = 0;
-    int intContLargestDigit = 0;
-    int* largestDigitPtr = new int[numIntST];
+    int freqDigit = 0;
+    int countFreqDigit = 0;
+    int* freqDigitPtr = new int[numIntST];
 
     // go through array of inputted numbers and store values
     for (int j = 0; j < numIntST; j++) {
@@ -137,11 +136,11 @@ void displayDigitInfoWithArrayST() {
             currentInt /= 10;            
             
             /*
-            if (currentInt % 10 >= largestDigit)
+            if (currentInt % 10 >= freqDigit)
             {
-                largestDigit = currentInt % 10;
-                countLargestDigit = occDigit[currentInt % 10];
-                intContLargestDigit = *(aryIntST + j);
+                freqDigit = currentInt % 10;
+                countFreqDigit = occDigit[currentInt % 10];
+                intContfreqDigit = *(aryIntST + j);
             }
             */
         }
@@ -156,48 +155,38 @@ void displayDigitInfoWithArrayST() {
 
     cout << "    The digit(s) is/are found as follows," << endl;
 
-    for (int k = 0; k < 10; k++) {
+    for (int k = 0, int ptrIdx = 0; k < 10; k++) {
         cout << "      " << k << " seen " << occDigit[k] << " time(s)" << endl; 
 
         // find most frequent digit(s)
-        if (occDigit[k] > countLargestDigit) {
-            countLargestDigit = occDigit[k];
-            largestDigit = k;
+        if (occDigit[k] >= countFreqDigit) {
+            *(freqDigitPtr + ptrIdx++) = k;
+            countFreqDigit = occDigit[k];
+            freqDigit = k;
         }
     }
 
     cout << "\n    The most seen digit(s) is/are\n"
-         << "      " << largestDigit << " seen " << countLargestDigit << " time(s), and\n"
-         << "        " << largestDigit << " is found in\n"
+         << "      " << freqDigit << " seen " << countFreqDigit << " time(s), and\n"
+         << "        " << freqDigit << " is found in"
          << endl;
 
     for (int l = 0; l < numIntST; l++) {
         int tmpST = *(aryIntST + l);
         
         while (tmpST) {
-            if (tmpST % 10 == largestDigit) {
+            if (tmpST % 10 == freqDigit) {
                 cout << "          " << *(aryIntST + l) << endl;
                 break; // learned in APCS (Java)
             }
 
             tmpST /= 10;
         }
-    }    
+    }
 
-    /*
-      negative and odd integer(s)
-      negative and even
-      positive and odd
-      positive and even
+    cout << endl;
 
-    The digit(s) is/are found as follows,
-      0-9 seen x time(s)
-
-    The most seen digit(s) is/are
-      y seen x time(s), and
-        y is found in
-          #s
-    */
+    delete []aryIntST;
 }
 
 /* PROGRAM_OUTPUT
