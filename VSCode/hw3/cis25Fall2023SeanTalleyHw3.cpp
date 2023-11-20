@@ -89,7 +89,6 @@ void displayDigitInfoWithArrayST() {
 
     int* aryInputIntST = new int[numIntST];
 
-    // initialize array pointer
     for (int i = 0; i < numIntST; i++) {
         cout << "    Enter integer #" << i + 1 << ": ";
 
@@ -100,19 +99,17 @@ void displayDigitInfoWithArrayST() {
         *(aryInputIntST + i) = idxIntST;
     }
 
-    int countNOST = 0; // negative & odd
-    int countNEST = 0; // negative & even
-    int countPOST = 0; // positive & odd
-    int countPEST = 0; // positive & even
+    int countNOST = 0;
+    int countNEST = 0;
+    int countPOST = 0;
+    int countPEST = 0;
 
-    int occDigitST[10]{0}; // occurence of digits 0-9
+    int occDigitST[10]{0};
 
-    int countFreqDigitST = 0; // most frequent occuring digit
-    int* freqDigitPtrST = new int[numIntST]; // the input numbers which contain the frequent digit
+    int countFreqDigitST = 0;
+    int* freqDigitPtrST = new int[numIntST];
 
-    // go through array of inputted numbers and store counts
     for (int j = 0; j < numIntST; j++) {
-        // count up sign and parity
         if (*(aryInputIntST + j) > 0) {
             if (*(aryInputIntST + j) % 2 == 0) {
                 countPEST++;
@@ -129,7 +126,6 @@ void displayDigitInfoWithArrayST() {
 
         int currentIntST = *(aryInputIntST + j) > 0 ? *(aryInputIntST + j) : -*(aryInputIntST + j);
 
-        // parse through each digit in each number and store occurences
         while (currentIntST) {
             occDigitST[currentIntST % 10]++;
             currentIntST /= 10;            
@@ -146,20 +142,17 @@ void displayDigitInfoWithArrayST() {
     cout << "    The digit(s) is/are found as follows," << endl;
 
     for (int k = 0; k < 10; k++) {
-        // don't print digits that aren't occurring
         if (occDigitST[k]) {
             cout << "      " << k << " seen " << occDigitST[k] << " time(s)" << endl; 
         }
 
-        // find the most frequently occuring digit
         if (occDigitST[k] >= countFreqDigitST) {
             countFreqDigitST = occDigitST[k];
         }
     }
 
-    int ptrIdxST = 0; // iterator for freqDigitPtrST
+    int ptrIdxST = 0;
 
-    // store numbers containing most frequent digit to pointer
     for (int l = 0; l < 10; l++) {
         if (occDigitST[l] == countFreqDigitST) {
             *(freqDigitPtrST + ptrIdxST++) = l;
@@ -176,7 +169,6 @@ void displayDigitInfoWithArrayST() {
         for (int n = 0; n < numIntST; n++) {
             int tmpST = *(aryInputIntST + n) > 0 ? *(aryInputIntST + n) : -*(aryInputIntST + n);
         
-            // print numbers that contain most frequent digit
             while (tmpST) {
                 if (tmpST % 10 == *(freqDigitPtrST + m)) {
                     cout << "          " << *(aryInputIntST + n) << endl;
