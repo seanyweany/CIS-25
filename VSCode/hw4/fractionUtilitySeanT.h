@@ -6,8 +6,8 @@
 * Written By: Sean Talley
 * Date: 2023/11/19
 */
-#ifndef FRACTIONUTILITYFIRSTL_H
-#define FRACTIONUTILITYFIRSTL_H
+#ifndef FRACTIONUTILITYSEANT_H
+#define FRACTIONUTILITYSEANT_H
 // Include/Header File(s)
 #include <iostream>
 #include "fractionSeanT.h"
@@ -15,8 +15,9 @@
 using namespace std;
 
 // Required functions
-bool isPalindromeFL(void);
-void displayCommonPalindromeDigitFL(void);
+bool isPalindromeST(void);
+void displayCommonPalindromeDigitST(void);
 
 // Other functions as needed
+
 #endif

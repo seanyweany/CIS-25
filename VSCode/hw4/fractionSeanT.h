@@ -27,6 +27,7 @@ public:
  // Constructors and destructor
  FractionSeanT();
  FractionSeanT(const FractionSeanT&);
+ FractionSeanT(int);
  FractionSeanT(int, int);
  ~FractionSeanT(); // destructor
 

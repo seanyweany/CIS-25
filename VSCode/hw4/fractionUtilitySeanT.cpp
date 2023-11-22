@@ -1,6 +1,6 @@
 /**
 * Program Name: fractionUtilitySeanT.cpp
-* Discussion: File #6 -
+* Discussion: File #4 -
 *               Implementation File
 *                 Fraction Utility
 * Written By: Sean Talley
@@ -15,3 +15,10 @@
 using namespace std;
 
 // Function Definitions Here
+bool isPalindromeST() {
+    return (FractionSeanT::isNumPalindrome() || FractionSeanT::isDenomPalindrome());
+}
+
+void displayCommonPalindromeDigit() {
+    cout << "Didn't finish" << endl;
+}
