@@ -1,9 +1,9 @@
 /**
- * Program Name: cis25Fall2023SeanTalleyHw3
- * Discussion:   Homework #3 Resubmission
- * Written By:   Sean Talley
- * Date:         2023/12/07
- */
+* Program Name: cis25Fall2023SeanTalleyHw3
+* Discussion:   Homework #3
+* Written By:   Sean Talley
+* Date:         2023/10/10 - 2023/11/09
+*/
 
 // Include and Header Files
 #include <iostream>
@@ -29,22 +29,22 @@ int main() {
 /* Functions Initialized */
 void displayCodingStatementST() {
     cout << "We write code to manipulate data, which are\n"
-		        "provided by the user(s), to produce the\n"
-		        "required outcome in the most efficient way!\n"
-		     << endl;
+		    "provided by the user(s), to produce the\n"
+		    "required outcome in the most efficient way!\n"
+		 << endl;
 }
 
 void displayClassInfoHw3ST() {
     cout << "CIS 25 - C++ Programming\n"
-		        "Laney College\n"
-		        "Sean Talley\n"
-		        "\n"
-		        "Information --\n"
-		        "Assignment:               HW #3\n"
-		        "Implemented by:           Sean Talley\n"
-		        "Required Submission Date: 2023/11/09\n"
-		        "Actual Submission Date:   2023/11/09\n"
-         << endl;
+		    "Laney College\n"
+		    "Sean Talley\n"
+		    "\n"
+		    "Information --\n"
+		    "Assignment:               HW #3\n"
+		    "Implemented by:           Sean Talley\n"
+		    "Required Submission Date: 2023/11/09\n"
+		    "Actual Submission Date:   2023/11/09\n"
+            << endl;
 }
 
 void runMenuHw3ST() {
@@ -63,7 +63,7 @@ void runMenuHw3ST() {
         switch (optionST) {
             case 1:
                 cout << "\nCalling displayDigitInfoWithArrayST() -\n\n"
-                        "  While displayDigitInfoWithArrayST() is running -\n"
+                     << "  While displayDigitInfoWithArrayST() is running -\n"
                      << endl;
 
                 displayDigitInfoWithArrayST();
@@ -82,32 +82,32 @@ void runMenuHw3ST() {
 void displayDigitInfoWithArrayST() {
     int numIntST;
 
-    int countNOST = 0;
-    int countNEST = 0;
-    int countPOST = 0;
-    int countPEST = 0;
-    int countFreqDigitST = 0;
-    int ptrIdxST = 0;
-
-    int occDigitST[10]{0};
-
     cout << "    How many integer(s)? ";
     cin >> numIntST;
 
-    int* aryInputIntST = new int[numIntST];
-    int* freqDigitPtrST = new int[numIntST];
-
     cout << endl;
 
-    for (int i = 0; i < numIntST; i++) {
-        int idxIntST;
+    int* aryInputIntST = new int[numIntST];
 
+    for (int i = 0; i < numIntST; i++) {
         cout << "    Enter integer #" << i + 1 << ": ";
+
+        int idxIntST;
 
         cin >> idxIntST;
 
         *(aryInputIntST + i) = idxIntST;
     }
+
+    int countNOST = 0;
+    int countNEST = 0;
+    int countPOST = 0;
+    int countPEST = 0;
+
+    int occDigitST[10]{0};
+
+    int countFreqDigitST = 0;
+    int* freqDigitPtrST = new int[numIntST];
 
     for (int j = 0; j < numIntST; j++) {
         if (*(aryInputIntST + j) > 0) {
@@ -133,10 +133,10 @@ void displayDigitInfoWithArrayST() {
     }
 
     cout << "\n    There is/are\n"
-            "      " << countNOST << " negative and odd integer(s)\n"
-            "      " << countNEST << " negative and even integer(s)\n"
-            "      " << countPOST << " positive and odd integer(s)\n"
-            "      " << countPEST << " positive and even integer(s)\n"
+         << "      " << countNOST << " negative and odd integer(s)\n"
+         << "      " << countNEST << " negative and even integer(s)\n"
+         << "      " << countPOST << " positive and odd integer(s)\n"
+         << "      " << countPEST << " positive and even integer(s)\n"
          << endl;
 
     cout << "    The digit(s) is/are found as follows," << endl;
@@ -151,6 +151,8 @@ void displayDigitInfoWithArrayST() {
         }
     }
 
+    int ptrIdxST = 0;
+
     for (int l = 0; l < 10; l++) {
         if (occDigitST[l] == countFreqDigitST) {
             *(freqDigitPtrST + ptrIdxST++) = l;
@@ -161,8 +163,8 @@ void displayDigitInfoWithArrayST() {
 
     for (int m = 0; m < ptrIdxST; m++) {
         cout << "      " << *(freqDigitPtrST + m) << " seen " << countFreqDigitST << " time(s), and\n"
-                "        " << *(freqDigitPtrST + m) << " is found in"
-             << endl;
+        << "        " << *(freqDigitPtrST + m) << " is found in"
+        << endl;
 
         for (int n = 0; n < numIntST; n++) {
             int tmpST = *(aryInputIntST + n) > 0 ? *(aryInputIntST + n) : -*(aryInputIntST + n);
