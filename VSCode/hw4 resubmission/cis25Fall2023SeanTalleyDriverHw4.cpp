@@ -1,10 +1,10 @@
 /**
-  * Program Name: cis25Fall2023SeanTalleyDriverHw4.cpp
-  * Discussion: File #7 -
-  *               Application Driver
-  * Written By: Sean Talley
-  * Date: 2023/11/19
-  */
+ * Program Name: cis25Fall2023SeanTalleyDriverHw4.cpp
+ * Discussion: File #7 -
+ *               Application Driver
+ * Written By: Sean Talley
+ * Date: 2023/11/19 - 2023/12/13
+ */
 
 // Include/Header File(s)
 #include <iostream>
@@ -115,7 +115,7 @@ Calling initSubMenuST() -
     Enter denom: -959
 
     One Fraction of
-      Address : 0x13270a0
+      Address : 0x11c85c8
         num : -5
         denom : 959
     has just been created/built!
@@ -152,7 +152,7 @@ Select an option (use integer value only): 4
 
 PRINTING Option -
 
-  Address : 0x13270a0
+  Address : 0x11c85c8
     num : -5
     denom : 959
 
@@ -185,7 +185,7 @@ Calling displayCommonPalindromeDigitST() Option -
   There is/are 1 common digit(s) of
     5
 
-The largest common Palindrome digit: 5
+  The largest common Palindrome digit: 5
 
 **************************************************
 *                 MENU - HW #4                   *
@@ -226,7 +226,7 @@ Calling initSubMenuST() -
     Enter num: 156810000
     Enter denom: 49914173
 
-    The Fraction object at 0x13270a0 has been updated as
+    The Fraction object at 0x11c85c8 has been updated as
         num : 156810000
         denom : 49914173
 
@@ -252,7 +252,7 @@ Select an option (use integer value only): 4
 
 PRINTING Option -
 
-  Address : 0x13270a0
+  Address : 0x11c85c8
     num : 156810000
     denom : 49914173
 
@@ -323,7 +323,7 @@ Calling initSubMenuST() -
     Enter num: 1551
     Enter denom: 5491945
 
-    The Fraction object at 0x13270a0 has been updated as
+    The Fraction object at 0x11c85c8 has been updated as
         num : 1551
         denom : 5491945
 
@@ -349,7 +349,7 @@ Select an option (use integer value only): 4
 
 PRINTING Option -
 
-  Address : 0x13270a0
+  Address : 0x11c85c8
     num : 1551
     denom : 5491945
 
@@ -383,7 +383,7 @@ Calling displayCommonPalindromeDigitST() Option -
     1
     5
 
-The largest common Palindrome digit: 5
+  The largest common Palindrome digit: 5
 
 **************************************************
 *                 MENU - HW #4                   *
@@ -396,7 +396,7 @@ The largest common Palindrome digit: 5
 Select an option (use integer value only): 5
 
 The Fraction is at
-  Address : 0x13270a0
+  Address : 0x11c85c8
     num : 1551
     denom : 5491945
 
@@ -409,5 +409,6 @@ Having Fun ...!
 */
 
 /** Logic_Code_Output_Issues
-
-*/
+ * There aren't any issues I could
+ * make out. Everything seems fine.
+ */

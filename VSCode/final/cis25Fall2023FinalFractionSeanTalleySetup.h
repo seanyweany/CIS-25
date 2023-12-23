@@ -1,47 +1,45 @@
 /**
- * Program Name: cis25Fraction1205.h
+ * Program Name: cis25Fall2023FinalFractionSeanTalleySetup.h
  * Discussion:   Specification File - Fraction Objects
- * Written By:   Someone
- * Date:         2023/12/05
+ * Written By:   Sean Talley
+ * Date:         2023/12/13 - 2023/12/14
  */
 
-#ifndef CIS25FRACTION_H
-#define CIS25FRACTION_H
+#ifndef CIS25FALL2023FINALFRACTIONSEANTALLEY_H
+#define CIS25FALL2023FINALFRACTIONSEANTALLEY_H
 
+// Include and Header Files
 #include <iostream>
 using namespace std;
 
+// Class Specification
 class Fraction {
 public:
-    // Constructors
-    Fraction(); // default constructor
-    Fraction(const Fraction&); // copy constructor
+    Fraction(); 
+    Fraction(const Fraction&);
     Fraction(int, int);
 
-    // get()/set()
+    ~Fraction();
+
     int getNum(void) const;
     void setNum(int);
 
     int getDenom(void) const;
     void setDenom(int);
 
-    Fraction add(const Fraction&) const;
+    void update(int, int);
     void print(void) const;
 
     bool isNumPalindrome(void) const;
     bool isDenomPalindrome(void) const;
 
-    //ostream& operator<<(ostream&) const;
-
     friend ostream& operator<<(ostream&, 
         const Fraction&);
 private:
-    int num; // private member data
-    int denom; // private member data
+    int num; 
+    int denom; 
 
     int gcdA(int, int) const;
 };
-
-//ostream& operator<<(ostream&, const Fraction&);
 
 #endif

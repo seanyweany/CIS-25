@@ -23,8 +23,8 @@ FractionSeanT::FractionSeanT(int n) : num { n }, denom{ 1 } {
     cout << "Calling FractionSeanT(int n)" << endl;
 }
 
-FractionSeanT::FractionSeanT(int n, int d) : num{ n / gcdBF(n, d) }, denom{ d / gcdBF(n, d) } {
-    cout << "Calling FractionSeanT(int n, int d)" << endl;
+FractionSeanT::FractionSeanT(int n, int d) : num{ n / gcdA(n, d) }, denom{ d / gcdA(n, d) } {
+    //cout << "Calling FractionSeanT(int n, int d)" << endl;
 }
 
 FractionSeanT::FractionSeanT(const FractionSeanT& ref) : num{ ref.num }, denom{ ref.denom } {
@@ -42,7 +42,8 @@ int FractionSeanT::getNum() const {
 }
 
 void FractionSeanT::setNum(int n) {
-    num = n;
+    num = n / gcdA(n, denom);
+    denom = denom / gcdA(n, denom);
 }
 
 int FractionSeanT::getDenom() const {
@@ -50,11 +51,13 @@ int FractionSeanT::getDenom() const {
 }
 
 void FractionSeanT::setDenom(int d) {
-    denom = d;
+    num = num / gcdA(num, d);
+    denom = d / gcdA(num, d);
 }
 
 // Boolean functions
 bool FractionSeanT::isNumPalindrome() const {
+    /*
     int tmpST = num < 0 ? -num : num;
     int digit;
     int rev = 0;
@@ -72,9 +75,21 @@ bool FractionSeanT::isNumPalindrome() const {
     } else {
         return false;
     }
+    */
+
+    int reverse = 0;
+    int temp = num;
+
+    while (temp) {
+        reverse = (reverse * 10) + (temp % 10);
+        temp /= 10;
+    }
+
+    return (reverse == num);
 }
 
 bool FractionSeanT::isDenomPalindrome() const {
+    /*
     int tmpST = denom < 0 ? -denom : denom;
     int digit;
     int rev = 0;
@@ -92,6 +107,17 @@ bool FractionSeanT::isDenomPalindrome() const {
     } else {
         return false;
     }
+    */
+
+    int reverse = 0;
+    int temp = denom;
+
+    while (temp) {
+        reverse = (reverse * 10) + (temp % 10);
+        temp /= 10;
+    }
+
+    return (reverse == denom);
 }
 
 /*
@@ -104,6 +130,7 @@ FractionSeanT FractionSeanT::add(FractionSeanT fr1, FractionSeanT fr2) {
 }
 */
 
+/*
 FractionSeanT FractionSeanT::add(FractionSeanT& frRef) const {
     int n;
     int d;
@@ -113,8 +140,10 @@ FractionSeanT FractionSeanT::add(FractionSeanT& frRef) const {
 
     return FractionSeanT{ n, d };
 }
+*/
 
 // Helper
+/*
 int FractionSeanT::gcdBF(int arg1, int arg2) {
     int gcd = 1;
 
@@ -126,4 +155,23 @@ int FractionSeanT::gcdBF(int arg1, int arg2) {
             gcd = i;
 
     return gcd;
+}
+*/
+
+int FractionSeanT::gcdA(int arg1, int arg2) const {
+    int gcd{ 1 };
+    int factor{ (arg2 < 0) ? -1 : 1 };
+
+    if (arg1 < 0) {
+        arg1 = -arg1;
+    }
+    if (arg2 < 0) {
+        arg2 = -arg2;
+    }
+
+    for (int i = 2; i <= arg1 && i <= arg2; i++)
+        if (arg1 % i == 0 && arg2 % i == 0)
+            gcd = i;
+
+    return factor * gcd;
 }

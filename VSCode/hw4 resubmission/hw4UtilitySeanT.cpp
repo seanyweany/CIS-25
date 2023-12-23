@@ -4,7 +4,7 @@
  *               Implementation File
  *                 Utility
  * Written By: Sean Talley
- * Date: 2023/12/07 - 2023/12/07
+ * Date: 2023/12/07 - 2023/12/13
  */
 
 // Include/Header File(s)
@@ -39,7 +39,7 @@ void displayClassInfoHw4ST() {
 void runMenuHw4ST() {
     int optionST;
     
-    FractionSeanT* currentFraction{ nullptr };
+    FractionSeanT* currentFractionST{ nullptr };
     
     do {
         cout << "**************************************************\n"
@@ -60,16 +60,16 @@ void runMenuHw4ST() {
                         "\n\nCalling initSubMenuST() -\n"
                      << endl;
 
-                initSubMenuST(currentFraction);
+                initSubMenuST(currentFractionST);
 
                 break;
             case 2:
                 cout << "\nUsing isPalindromeST() Option - \n" << endl;
 
-                if (currentFraction == nullptr) {
+                if (currentFractionST == nullptr) {
                     cout << "  Not a proper option as there is no Fraction!" << endl;
                 } else {
-                    if (isPalindromeST(currentFraction)) {
+                    if (isPalindromeST(currentFractionST)) {
                         cout << "  The current Fraction is a Palindrome!" << endl;
                     } else {
                         cout << "  The current Fraction is not a Palindrome!" << endl;
@@ -82,11 +82,11 @@ void runMenuHw4ST() {
             case 3:
                 cout << "\nCalling displayCommonPalindromeDigitST() Option -" << endl;
 
-                if (currentFraction == nullptr) {
+                if (currentFractionST == nullptr) {
                     cout << "\nNot a proper option as there is no Fraction!" << endl;
                 } else {
-                    if (isPalindromeST(currentFraction)) {
-                        displayCommonPalindromeDigitST(currentFraction);
+                    if (isPalindromeST(currentFractionST)) {
+                        displayCommonPalindromeDigitST(currentFractionST);
                     } else {
                         cout << "\n  The current Fraction is not a Palindrome!" << endl;
                     }
@@ -98,29 +98,29 @@ void runMenuHw4ST() {
             case 4:
                 cout << "\nPRINTING Option -" << endl;
 
-                if (currentFraction == nullptr) {
+                if (currentFractionST == nullptr) {
                     cout << "Not a proper option as there is no Fraction!" << endl;
                 } else {
-                    cout << "\n  Address : " << currentFraction
-                         << "\n    num : " << (*currentFraction).getNum()
-                         << "\n    denom : " << (*currentFraction).getDenom()
+                    cout << "\n  Address : " << currentFractionST
+                         << "\n    num : " << (*currentFractionST).getNum()
+                         << "\n    denom : " << (*currentFractionST).getDenom()
                          << "\n"
                          << endl;
                 }    
 
                 break;
             case 5:
-                if (currentFraction == nullptr) {
+                if (currentFractionST == nullptr) {
                     cout << "\nHaving Fun ...!\n" << endl;
                 } else {
                 cout << "\nThe Fraction is at"
-                        "\n  Address : " << currentFraction
-                     << "\n    num : " << (*currentFraction).getNum()
-                     << "\n    denom : " << (*currentFraction).getDenom()
+                        "\n  Address : " << currentFractionST
+                     << "\n    num : " << (*currentFractionST).getNum()
+                     << "\n    denom : " << (*currentFractionST).getDenom()
                      << "\n"
                      << endl;
 
-                delete currentFraction;
+                delete currentFractionST;
 
                 cout << "\nThe Fraction is now removed!"
                         "\n\nHaving Fun ...!"
@@ -133,7 +133,7 @@ void runMenuHw4ST() {
     } while (optionST != 5);
 }
 
-void initSubMenuST(FractionSeanT*& fr) {
+void initSubMenuST(FractionSeanT*& frRef) {
     int optionSubST;
 
     do {
@@ -151,26 +151,26 @@ void initSubMenuST(FractionSeanT*& fr) {
 
         switch (optionSubST) {
             case 1:
-                if (fr == nullptr) {
+                if (frRef == nullptr) {
                     cout << "  Creating 1 NEW Fraction object --"
                             "\n\n  Calling createFractionST()!\n"
                          << endl;
     
-                    createFractionST(fr);
+                    createFractionST(frRef);
                 } else {
                     cout << "  Please update or return!\n" << endl;
                 }
     
                 break;
             case 2:
-                if (fr == nullptr) {
+                if (frRef == nullptr) {
                     cout << "  Not a proper option as there is no Fraction!\n" << endl;
                 } else {
                     cout << "  Updating an EXISTING Fraction object -"
                             "\n\n  Calling updateFractionST()!\n"
                          << endl;
 
-                    updateFractionST(fr);
+                    updateFractionST(frRef);
                 }
         
                 break;
@@ -186,43 +186,43 @@ void initSubMenuST(FractionSeanT*& fr) {
     cout << endl;
 }
 
-void createFractionST(FractionSeanT*& fr) {
-    int inputNum;
-    int inputDenom;
+void createFractionST(FractionSeanT*& frRef) {
+    int inputNumST;
+    int inputDenomST;
     
     cout << "    Enter num: ";
-    cin >> inputNum;
+    cin >> inputNumST;
 
     cout << "    Enter denom: ";
-    cin >> inputDenom;
+    cin >> inputDenomST;
 
-    fr = new FractionSeanT{inputNum, inputDenom};
+    frRef = new FractionSeanT{inputNumST, inputDenomST};
 
     cout << "\n    One Fraction of"
-            "\n      Address : " << fr
-         << "\n        num : " << (*fr).getNum()
-         << "\n        denom : " << (*fr).getDenom()
+            "\n      Address : " << frRef
+         << "\n        num : " << (*frRef).getNum()
+         << "\n        denom : " << (*frRef).getDenom()
          << "\n    has just been created/built!\n"
          << endl;
 }
 
-void updateFractionST(FractionSeanT*& fr) {
+void updateFractionST(FractionSeanT*& frRef) {
     cout << "    Enter num: ";
 
-    int inputNum;
-    cin >> inputNum;
+    int inputNumST;
+    cin >> inputNumST;
 
     cout << "    Enter denom: ";
 
-    int inputDenom;
-    cin >> inputDenom;
+    int inputDenomST;
+    cin >> inputDenomST;
 
-    (*fr).setNum(inputNum);
-    (*fr).setDenom(inputDenom);
+    (*frRef).setNum(inputNumST);
+    (*frRef).setDenom(inputDenomST);
 
-    cout << "\n    The Fraction object at " << fr << " has been updated as"
-            "\n        num : " << (*fr).getNum()
-         << "\n        denom : " << (*fr).getDenom()
+    cout << "\n    The Fraction object at " << frRef << " has been updated as"
+            "\n        num : " << (*frRef).getNum()
+         << "\n        denom : " << (*frRef).getDenom()
          << "\n"
          << endl;
 }

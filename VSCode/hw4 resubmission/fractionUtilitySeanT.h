@@ -6,19 +6,15 @@
  * Written By: Sean Talley
  * Date: 2023/11/19 - 2023/12/13
  */
+
 #ifndef FRACTIONUTILITYSEANT_H
 #define FRACTIONUTILITYSEANT_H
+
 // Include/Header File(s)
 #include <iostream>
 #include "fractionSeanT.h"
 
 using namespace std;
-
-/*
-// Required functions
-bool isPalindromeST(const FractionSeanT&);
-void displayCommonPalindromeDigitST(void);
-*/
 
 // Required function prototypes
 bool isPalindromeST(const FractionSeanT*);

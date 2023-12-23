@@ -1,11 +1,11 @@
 /**
-* Program Name: hw4UtilitySeanT.h
-* Discussion: File #5 -
-*               Specification File
-* HW #4 Utility
-* Written By: Sean Talley
-* Date: 2023/11/19
-*/
+ * Program Name: hw4UtilitySeanT.h
+ * Discussion: File #5 -
+ *               Specification File
+ * HW #4 Utility
+ * Written By: Sean Talley
+ * Date: 2023/11/19 - 2023/12/13
+ */
 
 #ifndef HW4UTILITYSEANT_H
 #define HW4UTILITYSEANT_H

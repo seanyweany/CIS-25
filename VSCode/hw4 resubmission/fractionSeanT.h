@@ -1,7 +1,7 @@
 /**
  * Program Name: fractionSeanT.h
  * Discussion: File #1 -
-                 Specification File
+ *               Specification File
  *                 for your FractionSeanT class
  * Written By: Sean Talley
  * Date: 2023/11/19 - 2023/12/13
@@ -45,14 +45,12 @@ public:
     bool isNumPalindrome(void) const;
     bool isDenomPalindrome(void) const;
 
-    //FractionSeanT add(FractionSeanT&) const;
     friend ostream& operator<<(ostream&, const FractionSeanT&);
 private:
     int num;
     int denom;
  
     // Helper(s)
-    //int gcdBF(int, int);
     int gcdA(int, int) const;
 };
 #endif

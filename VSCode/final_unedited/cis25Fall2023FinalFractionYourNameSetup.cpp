@@ -1,14 +1,16 @@
 /**
- * Program Name: cis25Fraction1205.cpp
+ * Program Name: cis25Fall2023FinalFractionYourNameSetup.cpp
  * Discussion:   Implementation File - Fraction Objects
  * Written By:   Someone
- * Date:         2023/12/05
+ * Date:         2023/12/13
  */
 
 // Include and Header Files
 #include <iostream>
-#include "cis25Fraction1205.h"
+#include "cis25Fall2023FinalFractionYourNameSetup.h"
 using namespace std;
+
+// Function Definitions
 
 Fraction::Fraction() : num{ 0 }, denom{ 1 } {}
 
@@ -17,6 +19,10 @@ denom{d / gcdA(n, d)} {}
 
 Fraction::Fraction(const Fraction& ref) : num{ ref.num },
 denom{ ref.denom } {}
+
+Fraction::~Fraction() {
+    cout << "\nCalling ~Fraction()!" << endl;
+}
 
 int Fraction::gcdA(int arg1, int arg2) const {
     int gcd{ 1 };
@@ -48,8 +54,6 @@ void Fraction::setDenom(int d) {
 }
 
 int Fraction::getNum() const {
-    //num = 100;
-
     return num;
 }
 
@@ -57,19 +61,15 @@ int Fraction::getDenom() const {
     return denom;
 }
 
-Fraction Fraction::add(const Fraction& frRef) const {
-    int n;
-    int d;
-
-    n = num * frRef.denom + denom * frRef.num;
-    d = denom * frRef.denom;
-
-    return Fraction{ n, d };
+void Fraction::update(int n, int d) {
+    num = n / gcdA(n, d);
+    denom = d / gcdA(n, d);
 }
 
 void Fraction::print() const {
-    cout << "\n  num: " << num
-        << "\n  denom: " << denom << endl;
+    cout << "\n  Address : " << this
+         << "\n    num : " << num
+         << "\n    denom : " << denom << endl;
 }
 
 bool Fraction::isNumPalindrome() const {
@@ -78,15 +78,23 @@ bool Fraction::isNumPalindrome() const {
 
     while (temp) {
         reverse = (reverse * 10) + (temp % 10);
-        temp = temp / 10;
+        temp /= 10;
     }
     return (reverse == num);
 }
 
-ostream& operator<<(ostream& out, const Fraction& ref) {
-    //out << "\n  num: " << ref.getNum()
-    //    << "\n  denom: " << ref.getDenom() << endl;
+bool Fraction::isDenomPalindrome() const {
+    int reverse{ 0 };
+    int temp{ denom };
 
+    while (temp) {
+        reverse = (reverse * 10) + (temp % 10);
+        temp /= 10;
+    }
+    return (reverse == denom);
+}
+
+ostream& operator<<(ostream& out, const Fraction& ref) {
     out << "\n  num: " << ref.num
         << "\n  denom: " << ref.denom << endl;
 
